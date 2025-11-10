@@ -1,0 +1,174 @@
+:root {
+  /* Cores principais */
+  --cor-primaria: #004b23;
+  --cor-secundaria: #8bc34a;
+  --cor-texto: #333;
+  --cor-fundo: #f9f9f9;
+
+  /* Tipografia */
+  --fonte-principal: 'Arial', sans-serif;
+  --fonte-titulos: 'Trebuchet MS', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 3px solid var(--cor-primaria);
+}
+
+header h1 {
+  font-family: var(--fonte-titulos);
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+}
+
+header h2 {
+  font-size: 1rem;
+  color: var(--cor-secundaria);
+}
+
+/* =========================================
+   MENU DE NAVEGAÇÃO RESPONSIVO
+   ========================================= */
+nav {
+  position: relative;
+  margin: 1rem 0;
+}
+
+/* Ocultar menu e botão de fechar inicialmente */
+#menu-toggle,
+#btn-fechar {
+  display: none;
+}
+
+/* Botão abrir menu */
+#btn-abrir {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+/* Lista de navegação */
+nav ul {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: white;
+  border: 1px solid var(--cor-secundaria);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--cor-primaria);
+  font-weight: bold;
+}
+
+/* Exibir menu quando checkbox ativado */
+#menu-toggle:checked + nav ul {
+  display: flex;
+}
+
+/* Exibir botão de fechar quando o menu estiver aberto */
+#menu-toggle:checked ~ label[for="menu-toggle"] .abrir {
+  display: none;
+}
+#menu-toggle:checked ~ label[for="menu-toggle"] .fechar {
+  display: inline;
+}
+
+/* Ícones abrir/fechar */
+label[for="menu-toggle"] {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  cursor: pointer;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
+main {
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 1.5rem;
+}
+
+article {
+  border: 1px solid var(--cor-secundaria);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+article h2 {
+  color: var(--cor-primaria);
+  margin-bottom: 0.5rem;
+}
+
+article img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  border-top: 2px solid var(--cor-primaria);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (min-width: 768px) {
+  nav ul {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    background: none;
+    border: none;
+  }
+  label[for="menu-toggle"] {
+    display: none;
+  }
+  nav ul li {
+    margin: 0 1rem;
+  }
+  article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+  article img {
+    width: 100%;
+  }
+}
